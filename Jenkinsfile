@@ -13,6 +13,13 @@ pipeline{
                 }
             }
         }
+        stage("build"){
+            steps{
+                script{
+                    gv.post_test()
+                }
+            }
+        }
     }
     post{
         always{
