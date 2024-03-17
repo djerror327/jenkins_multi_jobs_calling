@@ -13,6 +13,7 @@ pipeline{
                 }
             }
         }
+    }
     post{
         always{
             echo "always block"
