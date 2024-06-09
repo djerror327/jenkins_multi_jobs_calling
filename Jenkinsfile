@@ -23,7 +23,8 @@ pipeline {
         stage('triggerSecondJob') {
             steps {
                 script {
-                    build job:  'second/second_job'
+                    // build job:  'second/second_job'
+                    build job: 'second/second_job', parameters: [string(name: 'Hierarchy', value: 'SM_GO')], waitForStart: true
                     // echo 'second job'
                 }
             }
