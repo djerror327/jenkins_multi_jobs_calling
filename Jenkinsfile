@@ -19,8 +19,8 @@ pipeline {
         stage('build') {
             steps {
                 script {
-                    if ("${param.Hierarchy}" == 'SM_GO') {
-                        echo "If condition matched with SM GO : {$param.Hierarchy}"
+                    if ("${params.Hierarchy}" == 'SM_GO') {
+                        echo "If condition matched with SM GO : {$params.Hierarchy}"
                     }
                 }
             }
