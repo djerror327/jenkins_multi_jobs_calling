@@ -20,6 +20,7 @@ pipeline {
             steps {
                 script {
                     if ("${params.Hierarchy}" == 'SM_GO') {
+                        sleep(60)
                         echo "If condition matched with SM GO : {$params.Hierarchy}"
                     }
                 }
