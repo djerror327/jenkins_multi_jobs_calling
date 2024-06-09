@@ -23,7 +23,8 @@ pipeline {
         stage('triggerSecondJob') {
             steps {
                 script {
-                    build:  'second/second_job'
+                    // build:  'second/second_job'
+                    echo 'second job'
                 }
             }
         }
