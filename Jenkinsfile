@@ -20,13 +20,13 @@ pipeline {
                 }
             }
         }
-        // stage('trigger second job') {
-        //     steps {
-        //         script {
-        //             build:  'second/second_job'
-        //         }
-        //     }
-        // }
+        stage('triggerSecondJob') {
+            steps {
+                script {
+                    build:  'second/second_job'
+                }
+            }
+        }
     }
     post {
         always {
