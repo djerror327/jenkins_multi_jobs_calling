@@ -1,35 +1,29 @@
 def gv
-pipeline{
+pipeline {
     agent any
-    environment{
-        VERSION="1.0.0"
-        // SERVER_CREDENTIAL=credentials('cloud-server')
+    environment {
+        VERSION = '1.0.0'
+    // SERVER_CREDENTIAL=credentials('cloud-server')
     }
-    stages{
-        stage("init"){
-            steps{
-                script{
-                    gv = load "pipeline.groovy"
+    parameters {
+        choice(name:'Hierarchy', choices:['SM_Tune', 'SM_GO'], description:'')
+    }
+    stages {
+        stage('init') {
+            steps {
+                script {
+                    gv = load 'pipeline.groovy'
                 }
             }
         }
-        stage("build"){
-            steps{
-                script{
-                    gv.post_test()
+        stage('build') {
+            steps {
+                script {
+                    if ("${param.Hierarchy}" == 'SM_GO') {
+                        echo "If condition matched with SM GO : {$param.Hierarchy}"
+                    }
                 }
             }
-        }
-    }
-    post{
-        always{
-            echo "always block"
-        }
-        success{
-            echo "success block"
-        }
-        failure{
-            echo "failiure block"
         }
     }
 }
