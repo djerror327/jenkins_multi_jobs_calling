@@ -10,6 +10,12 @@ pipeline{
             steps{
                 script{
                     gv = load "pipeline.groovy"
+                }
+            }
+        }
+        stage("build"){
+            steps{
+                script{
                     gv.post_test()
                 }
             }
